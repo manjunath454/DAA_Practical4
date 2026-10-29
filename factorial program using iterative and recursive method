@@ -1,0 +1,43 @@
+#include <iostream>
+
+using namespace std;
+
+long long factorialIterative(int n) {
+    if (n < 0) {
+        cout << "Factorial is not defined for negative numbers." << endl;
+        return -1;
+    }
+    
+    long long result = 1;
+    for (int i = 1; i <= n; i++) {
+        result *= i;
+    }
+    return result;
+}
+
+long long factorialRecursive(int n) {
+    if (n < 0) {
+        cout << "Factorial is not defined for negative numbers." << endl;
+        return -1;
+    }
+    
+    if (n == 0 || n == 1) {
+        return 1;
+    }
+    
+    return n * factorialRecursive(n - 1);
+}
+
+int main() {
+    int n = 6;
+
+    cout << "Number: " << n << "\n\n";
+
+    long long iterativeResult = factorialIterative(n);
+    cout << "Iterative Factorial: " << iterativeResult << endl;
+
+    long long recursiveResult = factorialRecursive(n);
+    cout << "Recursive Factorial: " << recursiveResult << endl;
+
+    return 0;
+}
